@@ -71,13 +71,13 @@ export default function ServiceInquiry() {
                className="w-full rounded-lg shadow-lg"
              />
              <img 
-               src="/price2.gif" 
-               alt="Price Information 2"
+               src="/price4.jpg" 
+               alt="Price Information 3"
                className="w-full rounded-lg shadow-lg"
              />
              <img 
-               src="/price3.jpg" 
-               alt="Price Information 3"
+               src="/price2.gif" 
+               alt="Price Information 2"
                className="w-full rounded-lg shadow-lg"
              />
            </div>

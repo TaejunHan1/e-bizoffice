@@ -64,11 +64,10 @@ import {
               <img 
                 src="/shareoffice8.png" 
                 alt="Location Map" 
-                className="w-full h-auto"
+                className="w-[800px] h-auto"
               />
             </div>
           </div>
-  
           {/* Contact Information with Icons */}
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="flex items-start space-x-4">

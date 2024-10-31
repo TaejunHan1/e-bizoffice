@@ -304,15 +304,15 @@ export default function Home() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <Users size={24} className="text-blue-600" />
-                    <p className="text-gray-700">접수 오픈되어 있는 사업장 주소를 일찍 주소지로 두고 싶은 분</p>
+                    <p className="text-gray-700">집주소로 되어있는 사업장 주소를 일반 회사 주소지로 두고 싶은 사업자</p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <HomeIcon size={24} className="text-blue-600" />
-                    <p className="text-gray-700">주거와 사업지를 내년대 주소지만 필요하신 분</p>
+                    <p className="text-gray-700">추가로 사업자를 내는데 주소지만 필요하신 분</p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <Briefcase size={24} className="text-blue-600" />
-                    <p className="text-gray-700">재택근무자 사업 주소지가 필요하신 분</p>
+                    <p className="text-gray-700">인터넷사업자 / 재택근무자 사업 주소지가 필요하신 분</p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <Globe size={24} className="text-blue-600" />
@@ -320,7 +320,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <Building2 size={24} className="text-blue-600" />
-                    <p className="text-gray-700">외국 주소의 업무 소재지를 사무장 개설이 필요하신 분</p>
+                    <p className="text-gray-700">외근 중심의 업무스타일로 사무공간이 필요하신 분</p>
                   </div>
                 </div>
                 <div className="space-y-6">

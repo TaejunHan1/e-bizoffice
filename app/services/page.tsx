@@ -39,12 +39,12 @@ export default function Services() {
 
   const commonDescriptions = [
     {
-      title: '구내의 가치있는 브랜드와 품격을 더하다.',
+      title: '사무실의 가치있는 브랜드와 품격을 더하다.',
       content:
         '비즈니스 환경 중심 강남구에 위치한 E-biz는 사업 1번지인 강남구에 위치해있습니다.',
     },
     {
-      title: '합리적이고 저렴한 가격으로 구내의 편의를 기획합니다.',
+      title: '합리적이고 저렴한 가격으로 사무실의 편의를 기획합니다.',
       content: '강남구에서 가장 저렴하고 합리적인 가격으로 운영하겠습니다.',
     },
     {
