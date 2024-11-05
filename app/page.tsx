@@ -24,7 +24,7 @@ export default function Home() {
     name: '',
     phone: '',
     inquiry: '',
-    adminPhone: '010-6276-8768'
+    adminPhone: '010-6386-7038'
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
