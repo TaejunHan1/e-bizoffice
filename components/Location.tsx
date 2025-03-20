@@ -84,17 +84,10 @@ export default function Location() {
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-medium mr-2 mt-1">2호선</span>
+                  <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-medium mr-2 mt-1">7호선</span>
                   <div>
-                    <p className="font-medium">강남역</p>
-                    <p className="text-gray-600 text-sm">3번 출구에서 도보 10분</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-purple-100 text-purple-800 px-2 py-0.5 rounded text-xs font-medium mr-2 mt-1">9호선</span>
-                  <div>
-                    <p className="font-medium">신논현역</p>
-                    <p className="text-gray-600 text-sm">4번 출구에서 도보 7분</p>
+                    <p className="font-medium">학동역</p>
+                    <p className="text-gray-600 text-sm">9번, 10번 출구에서 도보 2분</p>
                   </div>
                 </li>
               </ul>
@@ -107,15 +100,19 @@ export default function Location() {
               <div className="space-y-3">
                 <div>
                   <p className="font-medium">간선버스</p>
-                  <p className="text-gray-600">146, 341, 472</p>
+                  <p className="text-gray-600">147, 240, 463, 401</p>
                 </div>
                 <div>
                   <p className="font-medium">지선버스</p>
-                  <p className="text-gray-600">3412, 4412</p>
+                  <p className="text-gray-600">4211, 8641, 6411</p>
+                </div>
+                <div>
+                  <p className="font-medium">고속버스</p>
+                  <p className="text-gray-600">9202</p>
                 </div>
                 <div>
                   <p className="font-medium">정류장</p>
-                  <p className="text-gray-600">논현역, 신논현역</p>
+                  <p className="text-gray-600">학동역 6번출구 정류장</p>
                 </div>
               </div>
             </div>

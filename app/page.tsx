@@ -131,25 +131,7 @@ export default function HomePage() {
       {/* 페이지 내용 */}
       <div className="pt-0"> {/* 헤더 슬라이더가 전체 높이를 차지하므로 패딩 제거 */}
         <div className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">주요 편의시설</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-            <div className="bg-gray-50 p-6 rounded-xl text-center">
-              <Wifi className="w-8 h-8 mx-auto text-blue-500 mb-3" />
-              <h3 className="font-medium">초고속 와이파이</h3>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-xl text-center">
-              <Coffee className="w-8 h-8 mx-auto text-blue-500 mb-3" />
-              <h3 className="font-medium">무료 커피/음료</h3>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-xl text-center">
-              <Printer className="w-8 h-8 mx-auto text-blue-500 mb-3" />
-              <h3 className="font-medium">프린터/복사기</h3>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-xl text-center">
-              <Shield className="w-8 h-8 mx-auto text-blue-500 mb-3" />
-              <h3 className="font-medium">24시간 보안</h3>
-            </div>
-          </div>
+     
           
           {/* 소셜 미디어 섹션 */}
           <div className="flex flex-col items-center text-center mb-16">
@@ -215,8 +197,86 @@ export default function HomePage() {
           
           
 
-          {/* 운영 시간 섹션 - 운영시간 수정 */}
+        
+          
+          {/* 사업장 이미지 섹션 - 세로 크기 더 키움 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+            <div className="h-[550px] md:h-[600px] lg:h-[700px] overflow-hidden">
+  <img 
+    src="/sa2.jpg" 
+    alt="Business Location 1" 
+    className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+  />
+</div>
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800">강남구 논현동 사업자주소</h3>
+                <p className="text-gray-600 mt-3 mb-4">(비상주사무실) 임대안내</p>
+                <div className="flex">
+                  <div className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">
+                    사업자등록
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+            <div className="h-[550px] md:h-[600px] lg:h-[700px] overflow-hidden">
+                <img 
+                  src="/sa3.png" 
+                  alt="Business Location 2" 
+                  className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800">이비즈 비즈니스센터만의 차별점</h3>
+                <p className="text-gray-600 mt-3 mb-4">사업자등록/이전 반려 시</p>
+                <div className="flex">
+                  <div className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">
+                    비즈니스 센터
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          {/* 서비스 섹션 - 원래 위치로 이동 */}
           <div className="mb-20 md:mb-24">
+            <div className="mb-10 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">서비스 소개</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">이비즈 오피스만의 특별한 서비스를 확인해보세요.</p>
+            </div>
+            
+            <ServiceSlider 
+              images={['/shareoffice1.png', '/shareoffice2.png', '/shareoffice3.png', '/shareoffice4.png']} 
+              title="이비즈 오피스"
+              description="강남구 논현동에 위치한 E-Biz 오피스에서 비즈니스 경쟁력을 높이세요."
+            />
+          </div>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">주요 편의시설</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            <div className="bg-gray-50 p-6 rounded-xl text-center">
+              <Wifi className="w-8 h-8 mx-auto text-blue-500 mb-3" />
+              <h3 className="font-medium">초고속 와이파이</h3>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-xl text-center">
+              <Coffee className="w-8 h-8 mx-auto text-blue-500 mb-3" />
+              <h3 className="font-medium">무료 커피/음료</h3>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-xl text-center">
+              <Printer className="w-8 h-8 mx-auto text-blue-500 mb-3" />
+              <h3 className="font-medium">프린터/복사기</h3>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-xl text-center">
+              <Shield className="w-8 h-8 mx-auto text-blue-500 mb-3" />
+              <h3 className="font-medium">24시간 보안</h3>
+            </div>
+          </div>
+
+            {/* 운영 시간 섹션 - 운영시간 수정 */}
+            <div className="mb-20 md:mb-24">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 rounded-2xl p-8">
                 <h2 className="text-2xl font-bold mb-6">운영 시간</h2>
@@ -266,61 +326,6 @@ export default function HomePage() {
                 </ol>
               </div>
             </div>
-          </div>
-          
-          {/* 사업장 이미지 섹션 - 세로 크기 더 키움 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-            <div className="h-[550px] md:h-[600px] lg:h-[700px] overflow-hidden">
-  <img 
-    src="/sa2.jpg" 
-    alt="Business Location 1" 
-    className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
-  />
-</div>
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800">강남구 논현동 사업자주소</h3>
-                <p className="text-gray-600 mt-3 mb-4">(비상주사무실) 임대안내</p>
-                <div className="flex">
-                  <div className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">
-                    사업자등록
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-            <div className="h-[550px] md:h-[600px] lg:h-[700px] overflow-hidden">
-                <img 
-                  src="/sa3.png" 
-                  alt="Business Location 2" 
-                  className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800">이비즈 비즈니스센터만의 차별점</h3>
-                <p className="text-gray-600 mt-3 mb-4">사업자등록/이전 반려 시</p>
-                <div className="flex">
-                  <div className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">
-                    비즈니스 센터
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 서비스 섹션 - 원래 위치로 이동 */}
-          <div className="mb-20 md:mb-24">
-            <div className="mb-10 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">서비스 소개</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">이비즈 오피스만의 특별한 서비스를 확인해보세요.</p>
-            </div>
-            
-            <ServiceSlider 
-              images={['/shareoffice1.png', '/shareoffice2.png', '/shareoffice3.png', '/shareoffice4.png']} 
-              title="이비즈 오피스"
-              description="강남구 논현동에 위치한 E-Biz 오피스에서 비즈니스 경쟁력을 높이세요."
-            />
           </div>
 
           {/* 비용 절감 효과 섹션 */}
