@@ -5,59 +5,79 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+import { ChevronDown, PhoneCall, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Header() {
   const pathname = usePathname();
   const [showServiceMenu, setShowServiceMenu] = useState(false);
-
-  const [mainSliderRef, mainSliderInstanceRef] = useKeenSlider<HTMLDivElement>(
-    {
-      loop: true,
-      slides: { perView: 1, spacing: 0 },
-      mode: "free-snap",
-    }
-  );
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (mainSliderInstanceRef.current) {
-        const nextSlide =
-          (mainSliderInstanceRef.current.track.details.rel + 1) %
-          mainSliderInstanceRef.current.track.details.slides.length;
-        mainSliderInstanceRef.current.moveToIdx(nextSlide);
-      }
-    }, 4000);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [mainSliderInstanceRef]);
+  // 수정된 슬라이더 설정
+  const [sliderRef, instanceRef] = useKeenSlider({
+    slides: {
+      perView: 1,
+      spacing: 0,
+    },
+    loop: true,
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    }
+  });
+
+  // 자동 슬라이딩
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (instanceRef.current) {
+        instanceRef.current.next();
+      }
+    }, 5000);
+    
+    return () => {
+      clearInterval(timer);
+    };
+  }, [instanceRef]);
 
   return (
     <>
-      <header className="fixed w-full z-50">  {/* relative 대신 fixed 사용 */}
-      {/* 상단 헤더 */}
-        <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="py-2 md:py-3 text-center">
+      <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+        {/* 상단 헤더 */}
+        <div className="bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="py-2 flex justify-center">
               <Link href="/" className="inline-block">
-                <span className="text-base md:text-xl font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 transition-all">
-                  E-Biz
-                </span>
+                <img 
+                  src="/e-bizlogo.png" 
+                  alt="E-Biz Office Logo" 
+                  className="h-28 md:h-36 w-auto"
+                />
               </Link>
             </div>
           </div>
         </div>
 
         {/* 네비게이션 바 */}
-        <nav className="backdrop-blur-md bg-white/90 border-b border-gray-200/50 shadow-sm">
-          <div className="max-w-7xl mx-auto">
-            <ul className="flex justify-center items-center text-[11px] md:text-sm py-2 md:py-3 px-2 gap-x-5 md:gap-x-8">
+        <nav className="bg-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <ul className="flex justify-center items-center text-sm py-3 gap-x-8">
               <li>
                 <Link
                   href="/"
-                  className={`relative py-1 hover:text-blue-500 transition-colors duration-200 ${
+                  className={`relative py-2 px-1 transition-colors duration-200 font-medium ${
                     pathname === '/'
-                      ? 'text-blue-500'
-                      : 'text-gray-600'
+                      ? 'text-blue-500 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500'
+                      : 'text-gray-700 hover:text-blue-500'
                   }`}
                 >
                   홈
@@ -66,10 +86,10 @@ export default function Header() {
               <li>
                 <Link
                   href="/location"
-                  className={`relative py-1 hover:text-blue-500 transition-colors duration-200 ${
+                  className={`relative py-2 px-1 transition-colors duration-200 font-medium ${
                     pathname === '/location'
-                      ? 'text-blue-500'
-                      : 'text-gray-600'
+                      ? 'text-blue-500 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500'
+                      : 'text-gray-700 hover:text-blue-500'
                   }`}
                 >
                   오시는길
@@ -82,63 +102,96 @@ export default function Header() {
               >
                 <Link
                   href="/services"
-                  className={`relative py-1 hover:text-blue-500 transition-colors duration-200 ${
+                  className={`relative py-2 px-1 transition-colors duration-200 font-medium flex items-center ${
                     pathname === '/services'
-                      ? 'text-blue-500'
-                      : 'text-gray-600'
+                      ? 'text-blue-500 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500'
+                      : 'text-gray-700 hover:text-blue-500'
                   }`}
                 >
                   서비스 소개
+                  <ChevronDown size={16} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/inquiry"
-                  className={`relative py-1 hover:text-blue-500 transition-colors duration-200 ${
+                  className={`relative py-2 px-1 transition-colors duration-200 font-medium ${
                     pathname === '/inquiry'
-                      ? 'text-blue-500'
-                      : 'text-gray-600'
+                      ? 'text-blue-500 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500'
+                      : 'text-gray-700 hover:text-blue-500'
                   }`}
                 >
                   서비스 문의
                 </Link>
               </li>
-             
             </ul>
           </div>
         </nav>
       </header>
 
-      {/* 메인 슬라이더 */}
-      <div ref={mainSliderRef} className="keen-slider relative">
-        {[1, 2, 3, 4, 5].map((num) => (
-          <div key={num} className="keen-slider__slide">
-            <img
-              src={`/sample${num}.jpg`}
-              alt={`Slide ${num}`}
-              className="w-full h-[500px] md:h-[600px] object-cover"
-            />
-          </div>
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-          <h1 className="text-2xl md:text-4xl font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-            E-Biz Office
-          </h1>
-          <p className="text-base md:text-xl mt-2 md:mt-4 font-medium text-gray-200">
-            강남 & 공유 오피스
-          </p>
-          <p className="text-lg md:text-2xl mt-2 font-medium text-blue-400">
-            010.6276.8768
-          </p>
-          <div className="mt-4 md:mt-6 space-y-1">
-            <p className="text-sm md:text-base text-gray-200 font-medium">
-              We Add Value to Your Office
+      {/* 헤더 높이만큼 빈 공간 추가 */}
+      <div className="h-40 md:h-52"></div>
+
+      {/* 메인 슬라이더 - 토스 스타일 + 이미지 이슈 해결 */}
+      <div className="relative h-[600px] md:h-[720px]">
+        <div ref={sliderRef} className="keen-slider h-full">
+          {[1, 2, 3, 4, 5].map((num) => (
+            <div key={num} className="keen-slider__slide relative">
+              <div className="absolute inset-0 bg-black/50 z-10"></div>
+              <img
+                src={`/sample${num}.jpg`}
+                alt={`Slide ${num}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* 토스 스타일의 헤더 콘텐츠 */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-20 pt-16 md:pt-0">
+          <div className="max-w-4xl w-full text-center">
+            <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">
+              <span className="inline-block">비즈니스의 시작,</span> 
+              <span className="inline-block text-blue-300 mt-2">강남 공유 오피스</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-200 max-w-lg mx-auto mb-6">
+              필요한 것만 골라 쓰는 스마트한 비즈니스 솔루션
             </p>
-            <p className="text-sm md:text-base text-gray-300">
-              We will put in precious value and happiness.
-            </p>
+            
+            <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-4 mt-8">
+              <a 
+                href="tel:010-6276-8768" 
+                className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg inline-flex items-center justify-center transition-all w-full md:w-auto"
+              >
+                <PhoneCall size={18} className="mr-2" />
+                전화 문의
+              </a>
+              <Link 
+                href="/inquiry" 
+                className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg inline-flex items-center justify-center transition-all w-full md:w-auto"
+              >
+                <span>서비스 안내</span>
+                <ArrowRight size={16} className="ml-2" />
+              </Link>
+            </div>
           </div>
+        </div>
+        
+        {/* 슬라이더 인디케이터 */}
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-30">
+          {instanceRef.current && 
+            Array.from({length: instanceRef.current.track.details.slides.length}).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => instanceRef.current?.moveToIdx(idx)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  currentSlide === idx ? "bg-white scale-125" : "bg-white/40"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))
+          }
         </div>
       </div>
     </>

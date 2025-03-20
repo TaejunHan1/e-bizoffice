@@ -1,4 +1,3 @@
-// app/middleware.ts
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
@@ -43,10 +42,44 @@ function createErrorResponse(message: string, status: number = 429) {
       <head>
         <title>접근 제한</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+          }
+          .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+          }
+          h1 {
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 600;
+          }
+          p {
+            margin-bottom: 24px;
+            color: #666;
+          }
+          .card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+        </style>
       </head>
-      <body style="font-family: sans-serif; text-align: center; padding: 50px;">
-        <h1>접근이 제한되었습니다</h1>
-        <p>${message}</p>
+      <body>
+        <div class="card">
+          <div class="icon">⚠️</div>
+          <h1>접근이 제한되었습니다</h1>
+          <p>${message}</p>
+        </div>
       </body>
     </html>
     `,

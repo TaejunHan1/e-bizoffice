@@ -4,18 +4,86 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0c0c0e;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #0c0c0e;
+  --popover: #ffffff;
+  --popover-foreground: #0c0c0e;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #0c0c0e;
+  --muted: #f3f4f6;
+  --muted-foreground: #71717a;
+  --accent: #f3f4f6;
+  --accent-foreground: #0c0c0e;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #3b82f6;
+  --radius: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* For webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
 }

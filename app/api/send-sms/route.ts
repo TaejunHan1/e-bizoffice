@@ -1,4 +1,3 @@
-// app/api/send-sms/route.ts
 import { SolapiMessageService } from 'solapi';
 import fs from 'fs';
 import path from 'path';
@@ -44,7 +43,12 @@ export async function POST(request: Request) {
     if (!adminPhone) {
       return new Response(JSON.stringify({
         error: '수신자 번호가 필요합니다.'
-      }), { status: 400 });
+      }), { 
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
     }
 
     // 현재 날짜 (서울 시간 기준)
@@ -58,7 +62,12 @@ export async function POST(request: Request) {
       if (memoryCount.count >= 1) {  // 1회로 제한
         return new Response(JSON.stringify({
           error: '하루에 한 번만 문의 가능합니다.'
-        }), { status: 429 });
+        }), { 
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
       }
       memoryCount.count += 1;
     } else {
@@ -75,7 +84,12 @@ export async function POST(request: Request) {
     if (fileCount >= 1) {  // 1회로 제한
       return new Response(JSON.stringify({
         error: '하루에 한 번만 문의 가능합니다.'
-      }), { status: 429 });
+      }), { 
+        status: 429,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
     }
 
     // 문자 메시지 내용 구성
@@ -111,12 +125,22 @@ export async function POST(request: Request) {
 
     return new Response(JSON.stringify({
       message: '문의가 성공적으로 전송되었습니다.'
-    }), { status: 200 });
+    }), { 
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
 
   } catch (error) {
     console.error('Failed to send SMS:', error);
     return new Response(JSON.stringify({
       error: '문자 전송에 실패했습니다.'
-    }), { status: 500 });
+    }), { 
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 }
