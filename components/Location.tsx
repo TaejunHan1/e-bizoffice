@@ -42,7 +42,7 @@ export default function Location() {
             <img src="/facebook-icon.png" alt="Facebook" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
           </a>
           <a 
-            href="http://qr.kakao.com/talk/EY07kCmUR97NBwRFunG2rZqczmw-" 
+            href="https://open.kakao.com/o/grmmDSAh" 
             className="bg-white rounded-full p-3 md:p-4 shadow-sm hover:shadow-md transition-shadow"
           >
             <img src="/kakao-icon.png" alt="KakaoTalk" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />

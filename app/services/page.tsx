@@ -26,11 +26,11 @@ export default function Services() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const images: Record<ServiceId, string[]> = {
-    surroundings: ['/nearbyoffice1.jpg', '/nearbyoffice2.jpg', '/nearbyoffice3.jpg'],
+    surroundings: ['/nearbyoffice1.jpg', '/nearbyoffice2.jpg', '/nearbyoffice3.jpg', '/sur2.jpeg'],
     interior: ['/inside1.jpg', '/inside2.jpg', '/inside3.jpg', '/inside4.jpg', '/inside5.jpg'],
-    single: ['/personal.jpg', '/personal2.jpg', '/personal3.jpg'],
-    multi: ['/toomuch1.jpg', '/toomuch2.jpg', '/toomuch3.jpg', '/toomuch4.jpg'],
-    meeting: ['/officeroom.jpg', '/officeroom2.jpg', '/officeroom3.jpg', '/officeroom4.jpg'],
+    single: ['/personal.jpg', '/personal2.jpg', '/personal3.jpg', '/1in.jpeg'],
+    multi: ['/toomuch1.jpg', '/toomuch2.jpg', '/toomuch3.jpg', '/toomuch4.jpg', '/dain.jpeg', '/dain2.jpeg'],
+    meeting: ['/officeroom.jpg', '/officeroom2.jpg', '/officeroom3.jpg', '/officeroom4.jpg', '/ghldml.jpeg', '/ghldml2.jpeg'],
     pantry: ['/break.jpg', '/break2.jpg'],
   };
 

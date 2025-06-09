@@ -45,7 +45,7 @@ export default function Footer() {
                 />
               </a>
               <a 
-                href="http://qr.kakao.com/talk/EY07kCmUR97NBwRFunG2rZqczmw-" 
+                href="https://open.kakao.com/o/grmmDSAh" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gray-50 p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -173,7 +173,7 @@ export default function Footer() {
                   />
                 </a>
                 <a 
-                  href="http://qr.kakao.com/talk/EY07kCmUR97NBwRFunG2rZqczmw-" 
+                  href="https://open.kakao.com/o/grmmDSAh" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-gray-50 p-2 rounded-full hover:bg-gray-100 transition-colors"

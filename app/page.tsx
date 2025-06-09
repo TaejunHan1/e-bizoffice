@@ -164,7 +164,7 @@ export default function HomePage() {
                 />
               </a>
               <a 
-                href="http://qr.kakao.com/talk/EY07kCmUR97NBwRFunG2rZqczmw-" 
+                href="https://open.kakao.com/o/grmmDSAh" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white p-3 md:p-4 lg:p-6 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110"
